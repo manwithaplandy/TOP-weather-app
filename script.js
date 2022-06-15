@@ -1,5 +1,6 @@
 const cityInput = document.getElementById("city");
 const btn = document.getElementById("submit");
+const error = document.querySelector(".error");
 
 async function getWeatherData(city) {
   if (!city) {
@@ -8,13 +9,19 @@ async function getWeatherData(city) {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=a0d77661dd84ff173d88715f63cbd1b3&units=imperial`
-    );
-    const data = await response.json();
-    const filtered = await processWeatherData(data);
-    console.log(filtered);
-    refreshWeather(filtered);
+    ).then(async (response) => {
+      console.log(response);
+      if (response.statusText === "Not Found") {
+        error.textContent = "City not found";
+      } else {
+        const data = await response.json();
+        const filtered = await processWeatherData(data);
+        console.log(filtered);
+        refreshWeather(filtered);
+      }
+    });
   } catch (error) {
-    console.log(error);
+    error.textContent = "Something bad happened";
   }
 }
 
@@ -57,7 +64,10 @@ function refreshWeather(data) {
   feelslike.textContent = `Feels like: ${data.feels_like}°`;
 }
 
-btn.addEventListener("click", () => getWeatherData(cityInput.value));
+btn.addEventListener("click", () => {
+  error.textContent = "";
+  getWeatherData(cityInput.value);
+});
 
 // Load default weather data
 getWeatherData("San Diego");

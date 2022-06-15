@@ -76,3 +76,8 @@ img {
   width: 50%;
   align-self: center;
 }
+
+.error {
+  color: red;
+  font-size: larger;
+}
