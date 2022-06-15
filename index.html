@@ -9,10 +9,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="title">TOP Weather App</div>
-      <div class="main">
-        <div class="weather"></div>
+    <div class="topbar">
+      <div class="topbar-logo">
+        <img src="openweather.png" alt="Weather logo" />
+      </div>
+    </div>
+    <div class="cw-container">
+      <div class="cw-main">
+        <br />
+        <div class="cw-weather">
+          <h1 class="cw-city"></h1>
+          <img src="" alt="Weather Icon" class="cw-icon" />
+          <h2 class="cw-weather-desc"></h2>
+          <p class="cw-temp"></p>
+          <p class="cw-mintemp"></p>
+          <p class="cw-maxtemp"></p>
+          <p class="cw-humidity"></p>
+          <p class="cw-feelslike"></p>
+        </div>
         <div class="input-form">
           <input type="text" id="city" placeholder="Enter a city" />
           <button type="button" id="submit">Submit</button>

@@ -1,29 +1,27 @@
 body {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10vh 1fr;
   place-items: center;
   height: 100vh;
   text-align: center;
-  background-image: url("./clouds.jpg");
+  /* background-image: url("./clouds.jpg"); */
   background-size: cover;
+  position: relative;
+  margin: 0;
 }
 
-.container {
+.cw-container {
   display: grid;
-  grid-template-rows: 15vh 1fr;
+  grid-template-rows: 1fr;
   justify-items: center;
-  min-height: 50vh;
+  min-height: 92vh;
   background-color: rgba(211, 211, 211, 0.72);
   width: min-content;
+  min-width: 100%;
 }
 
-.title {
-  font-size: xx-large;
-  font-weight: bold;
-  width: 25ch;
-  align-self: center;
-}
-
-.main {
+.cw-main {
   padding-top: 1rem;
   padding-bottom: 2rem;
 }
@@ -32,7 +30,49 @@ img {
   width: 5rem;
 }
 
-.weather > * {
+.cw-weather {
+  margin-top: 4rem;
+}
+
+.cw-weather > * {
   margin: 0;
   padding: 0.5rem;
+}
+
+.cw-weather > p {
+  font-size: larger;
+}
+
+.topbar {
+  width: 100vw;
+  height: 10vh;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1;
+}
+
+.topbar-logo > img {
+  height: 6vh;
+  width: auto;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 4rem;
+}
+
+.input-form > input {
+  border-radius: 3rem;
+  padding: 0.5rem;
+}
+
+.input-form > button {
+  border-radius: 3rem;
+  padding: 0.5rem;
+  width: 50%;
+  align-self: center;
 }
