@@ -4,19 +4,19 @@ const error = document.querySelector(".error");
 
 async function getWeatherData(city) {
   if (!city) {
-    city = "San Diego";
+    error.textContent = "Please enter a city";
   }
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=a0d77661dd84ff173d88715f63cbd1b3&units=imperial`
     ).then(async (response) => {
-      console.log(response);
+      //   console.log(response);
       if (response.statusText === "Not Found") {
         error.textContent = "City not found";
       } else {
         const data = await response.json();
         const filtered = await processWeatherData(data);
-        console.log(filtered);
+        // console.log(filtered);
         refreshWeather(filtered);
       }
     });
