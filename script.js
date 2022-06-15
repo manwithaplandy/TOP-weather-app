@@ -2,13 +2,19 @@ const cityInput = document.getElementById("city");
 const btn = document.getElementById("submit");
 const error = document.querySelector(".error");
 
-async function getWeatherData(city) {
+async function getWeatherData(input) {
+  let param;
   if (!city) {
     error.textContent = "Please enter a city";
   }
+  if (parseInt(input)) {
+    param = `zip=${input},us`;
+  } else {
+    param = `q=${input}`;
+  }
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=a0d77661dd84ff173d88715f63cbd1b3&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?${param}&APPID=a0d77661dd84ff173d88715f63cbd1b3&units=imperial`
     ).then(async (response) => {
       //   console.log(response);
       if (response.statusText === "Not Found") {
