@@ -37,19 +37,30 @@ function refreshWeather(data) {
   const parent = document.querySelector(".weather");
   const city = document.createElement("h1");
   city.textContent = data.city;
+  const icon = document.createElement("img");
+  icon.src = `http://openweathermap.org/img/w/${data.weather.icon}.png`;
   const weather = document.createElement("h2");
   weather.textContent = `${data.weather.description}`;
   const temp = document.createElement("p");
-  temp.textContent = `Current Temp: ${data.temp}`;
+  temp.textContent = `Current Temp: ${data.temp}°`;
   const mintemp = document.createElement("p");
-  mintemp.textContent = `Low: ${data.temp_min}`;
+  mintemp.textContent = `Low: ${data.temp_min}°`;
   const maxtemp = document.createElement("p");
-  maxtemp.textContent = `High: ${data.temp_max}`;
+  maxtemp.textContent = `High: ${data.temp_max}°`;
   const humidity = document.createElement("p");
   humidity.textContent = `Humidity: ${data.humidity}`;
   const feelslike = document.createElement("p");
-  feelslike.textContent = `Feels like: ${data.feels_like}`;
-  parent.append(city, weather, temp, mintemp, maxtemp, humidity, feelslike);
+  feelslike.textContent = `Feels like: ${data.feels_like}°`;
+  parent.append(
+    city,
+    icon,
+    weather,
+    temp,
+    mintemp,
+    maxtemp,
+    humidity,
+    feelslike
+  );
 }
 
 btn.addEventListener("click", () => getWeatherData(cityInput.value));

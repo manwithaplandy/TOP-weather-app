@@ -1,0 +1,38 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  text-align: center;
+  background-image: url("./clouds.jpg");
+  background-size: cover;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 15vh 1fr;
+  justify-items: center;
+  min-height: 50vh;
+  background-color: rgba(211, 211, 211, 0.72);
+  width: min-content;
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bold;
+  width: 25ch;
+  align-self: center;
+}
+
+.main {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+img {
+  width: 5rem;
+}
+
+.weather > * {
+  margin: 0;
+  padding: 0.5rem;
+}
